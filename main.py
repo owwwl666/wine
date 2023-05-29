@@ -6,9 +6,9 @@ import collections
 
 
 def correct_form(number=datetime.datetime.now().year):
-    """
-    Склонение слова "год" в зависимости от числительного
+    """Склонение слова "год" в зависимости от числительного.
 
+    Примеры:
     1 -> год
     2 -> года
     9 -> лет
@@ -24,10 +24,7 @@ def correct_form(number=datetime.datetime.now().year):
 
 
 def information_wines(file):
-    """
-    Сортировка напитков по их категориям
-
-    """
+    """Сортировка напитков по их категориям."""
     data_about_wines = pandas.read_excel(file, na_values=['N/A', 'NA'], keep_default_na=False).to_dict(
         orient='records')
     sort_by_category = collections.defaultdict(list)
