@@ -24,7 +24,7 @@ def correct_form(number=datetime.datetime.now().year):
     return 'лет'
 
 
-def information_wines(file):
+def sort_the_file(file):
     """Сортировка напитков по их категориям."""
     data_about_wines = pandas.read_excel(file, na_values=['N/A', 'NA'], keep_default_na=False).to_dict(
         orient='records')
@@ -51,7 +51,7 @@ def main():
     rendered_page = template.render(
         years=datetime.datetime.now().year - age_winery,
         correct_form_year=correct_form(),
-        assortment_wine=information_wines(envir("FILE_INFORMATION_WINE"))
+        assortment_wine=sort_the_file(envir("FILE_INFORMATION_WINE"))
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
