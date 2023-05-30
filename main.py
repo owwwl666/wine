@@ -24,9 +24,9 @@ def decline_the_word(number=datetime.datetime.now().year):
     return 'лет'
 
 
-def sort_the_file(file):
+def sort_the_file(filepath):
     """Сортировка напитков по их категориям."""
-    information_about_wines = pandas.read_excel(file, na_values=['N/A', 'NA'], keep_default_na=False).to_dict(
+    information_about_wines = pandas.read_excel(filepath, na_values=['N/A', 'NA'], keep_default_na=False).to_dict(
         orient='records')
     sorting_by_category = collections.defaultdict(list)
 
