@@ -6,7 +6,7 @@ import pandas
 import collections
 
 
-def correct_form(number=datetime.datetime.now().year):
+def decline_the_word(number=datetime.datetime.now().year):
     """Склонение слова "год" в зависимости от числительного.
 
     Примеры:
@@ -50,7 +50,7 @@ def main():
 
     rendered_page = template.render(
         years=datetime.datetime.now().year - age_winery,
-        correct_form_year=correct_form(),
+        correct_form_year=decline_the_word(),
         assortment_wine=sort_the_file(envir("FILE_INFORMATION_WINE"))
     )
 
