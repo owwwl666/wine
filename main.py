@@ -42,8 +42,10 @@ def main():
 
     template = env.get_template('template.html')
 
+    age_winery = 1920
+
     rendered_page = template.render(
-        years=datetime.datetime.now().year - 1920,
+        years=datetime.datetime.now().year - age_winery,
         correct_form_year=correct_form(),
         assortment_wine=information_wines('data_wines.xlsx')
     )
