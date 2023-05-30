@@ -26,12 +26,12 @@ def correct_form(number=datetime.datetime.now().year):
 
 def sort_the_file(file):
     """Сортировка напитков по их категориям."""
-    data_about_wines = pandas.read_excel(file, na_values=['N/A', 'NA'], keep_default_na=False).to_dict(
+    information_about_wines = pandas.read_excel(file, na_values=['N/A', 'NA'], keep_default_na=False).to_dict(
         orient='records')
     sort_by_category = collections.defaultdict(list)
 
-    for value in data_about_wines:
-        sort_by_category[value['Категория']].append(value)
+    for information in information_about_wines:
+        sort_by_category[information['Категория']].append(information)
     return sort_by_category
 
 
