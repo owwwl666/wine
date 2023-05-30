@@ -51,7 +51,7 @@ def main():
     rendered_page = template.render(
         number_of_years=datetime.datetime.now().year - age_winery,
         correct_form_year=decline_the_word(),
-        assortment_wine=sort_the_file(envir("FILE_INFORMATION_WINE"))
+        assortment_drink=sort_the_file(envir("FILE_INFORMATION_WINE"))
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
