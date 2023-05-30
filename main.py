@@ -1,5 +1,6 @@
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from environs import Env
 import datetime
 import pandas
 import collections
@@ -40,6 +41,9 @@ def main():
         autoescape=select_autoescape(['html', 'xml'])
     )
 
+    envir = Env()
+    envir.read_env()
+
     template = env.get_template('template.html')
 
     age_winery = 1920
@@ -47,7 +51,7 @@ def main():
     rendered_page = template.render(
         years=datetime.datetime.now().year - age_winery,
         correct_form_year=correct_form(),
-        assortment_wine=information_wines('data_wines.xlsx')
+        assortment_wine=information_wines(envir("FILE_INFORMATION_WINE"))
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
