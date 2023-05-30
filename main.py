@@ -49,7 +49,7 @@ def main():
     age_winery = 1920
 
     rendered_page = template.render(
-        years=datetime.datetime.now().year - age_winery,
+        number_of_years=datetime.datetime.now().year - age_winery,
         correct_form_year=decline_the_word(),
         assortment_wine=sort_the_file(envir("FILE_INFORMATION_WINE"))
     )
