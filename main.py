@@ -6,7 +6,7 @@ import pandas
 import collections
 
 
-def decline_the_word(number=datetime.datetime.now().year):
+def decline_word(number=datetime.datetime.now().year):
     """Склонение слова "год" в зависимости от числительного.
 
     Примеры:
@@ -24,7 +24,7 @@ def decline_the_word(number=datetime.datetime.now().year):
     return 'лет'
 
 
-def sort_the_file(filepath):
+def get_data_from_file(filepath):
     """Сортировка напитков по их категориям."""
     information_about_wines = pandas.read_excel(filepath, na_values=['N/A', 'NA'], keep_default_na=False).to_dict(
         orient='records')
@@ -50,8 +50,8 @@ def main():
 
     rendered_page = template.render(
         number_of_years=datetime.datetime.now().year - age_winery,
-        correct_form_year=decline_the_word(),
-        assortment_drink=sort_the_file(envir("FILE_INFORMATION_WINE"))
+        correct_form_year=decline_word(),
+        assortment_drink=get_data_from_file(envir("FILE_INFORMATION_WINE"))
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
