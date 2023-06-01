@@ -46,12 +46,12 @@ def main():
 
     template = env.get_template('template.html')
 
-    year_creation = 1920
+    creation_year = 1920
 
     rendered_page = template.render(
-        age_winery=datetime.datetime.now().year - year_creation,
+        winery_age=datetime.datetime.now().year - creation_year,
         correct_form_year=decline_word(),
-        assortment_drink=get_data_from_file(envir("FILE_INFORMATION_WINE"))
+        drink_assortment=get_data_from_file(envir("FILE_INFORMATION_WINE"))
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
