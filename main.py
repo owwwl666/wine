@@ -26,13 +26,13 @@ def decline_word(number=datetime.datetime.now().year):
 
 def get_data_from_file(filepath):
     """Сортировка напитков по их категориям."""
-    list_drinkables = pandas.read_excel(filepath, na_values=['N/A', 'NA'], keep_default_na=False).to_dict(
+    drinkables = pandas.read_excel(filepath, na_values=['N/A', 'NA'], keep_default_na=False).to_dict(
         orient='records')
-    list_categories_drinkables = collections.defaultdict(list)
+    drinkables_categories = collections.defaultdict(list)
 
-    for drink in list_drinkables:
-        list_categories_drinkables[drink['Категория']].append(drink)
-    return list_categories_drinkables
+    for drink in drinkables:
+        drinkables_categories[drink['Категория']].append(drink)
+    return drinkables_categories
 
 
 def main():
